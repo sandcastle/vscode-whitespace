@@ -1,0 +1,36 @@
+{
+	"name": "whitespace",
+	"description": "Normalizes whitespace in files",
+	"version": "0.0.1",
+	"publisher": "Sandcastle",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+    "*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [{
+			"command": "extension.whitespace",
+			"title": "Normalize Whitespace"
+		}],
+    "keybindings": [{
+      "command": "extension.whitespace",
+      "key": "shift+alt+space",
+      "mac": "shift+cmd+space",
+      "when": "editorTextFocus"
+    }]
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	}
+}
