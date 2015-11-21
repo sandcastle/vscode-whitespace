@@ -2,7 +2,7 @@
 	"name": "whitespace",
 	"description": "Normalizes whitespace in files",
 	"version": "0.0.1",
-	"publisher": "Sandcastle",
+	"publisher": "sandcastle",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
