@@ -1,11 +1,28 @@
 {
 	"name": "whitespace",
+  "displayName": "Whitespace",
 	"description": "Normalizes whitespace in files",
-	"version": "0.0.1",
+	"version": "0.0.2",
+  "icon": "icon.png",
 	"publisher": "sandcastle",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sandcastle/vscode-whitespace"
+  },
+  "keywords": [
+    "text",
+    "whitespace",
+    "space",
+    "tab",
+    "editorconfig"
+  ],
+  "homepage": "https://github.com/sandcastle/vscode-whitespace",
+  "bugs": {
+    "url": "https://github.com/sandcastle/vscode-whitespace/issues"
+  },
 	"categories": [
 		"Other"
 	],
