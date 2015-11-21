@@ -1,13 +1,13 @@
 {
-	"name": "whitespace",
+  "name": "whitespace",
   "displayName": "Whitespace",
-	"description": "Normalizes whitespace in files",
-	"version": "0.0.2",
+  "description": "Normalizes whitespace in files",
+  "version": "0.0.3",
   "icon": "icon.png",
-	"publisher": "sandcastle",
-	"engines": {
-		"vscode": "^0.10.1"
-	},
+  "publisher": "sandcastle",
+  "engines": {
+    "vscode": "^0.10.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sandcastle/vscode-whitespace"
@@ -23,31 +23,31 @@
   "bugs": {
     "url": "https://github.com/sandcastle/vscode-whitespace/issues"
   },
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
     "*"
-	],
-	"main": "./out/src/extension",
-	"contributes": {
-		"commands": [{
-			"command": "extension.whitespace",
-			"title": "Normalize Whitespace"
-		}],
+  ],
+  "main": "./out/src/extension",
+  "contributes": {
+    "commands": [{
+      "command": "extension.whitespace",
+      "title": "Normalize Whitespace"
+    }],
     "keybindings": [{
       "command": "extension.whitespace",
       "key": "shift+alt+space",
       "mac": "shift+cmd+space",
       "when": "editorTextFocus"
     }]
-	},
-	"scripts": {
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
-	"devDependencies": {
-		"typescript": "^1.6.2",
-		"vscode": "0.10.x"
-	}
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+  },
+  "devDependencies": {
+    "typescript": "^1.6.2",
+    "vscode": "0.10.x"
+  }
 }
