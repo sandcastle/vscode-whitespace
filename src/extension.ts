@@ -18,6 +18,7 @@ class NormalizeController {
   private _matcher: RegExp;
   private _replacement : string;
   private _spaces : string;
+  private _trimSpace : boolean;
 
   constructor() {
 
@@ -39,14 +40,15 @@ class NormalizeController {
   private _loadConfig(){
 
     let editorConfigurationNode = vscode.workspace.getConfiguration('editor');
-    let {indent_style, indent_size} = this._toEditorConfig(
+    let {indent_style, indent_size, trim_whitespace} = this._toEditorConfig(
         editorConfigurationNode.get<string | boolean>('insertSpaces'),
-        editorConfigurationNode.get<string | number>('tabSize')
+        editorConfigurationNode.get<string | number>('tabSize'),
     );
 
     this._spaces = (new Array(parseInt(indent_size) + 1).join(' '));
     this._replacement = (indent_style === 'space') ? this._spaces : '\t';
     this._matcher = (indent_style === 'space') ? /\t/g : new RegExp(this._spaces, 'g');
+    this._trimSpace = (editorConfigurationNode.get<boolean>('trimTrailingSpace', true);
   }
 
 	private _onDocumentSaved() {
@@ -97,7 +99,7 @@ class NormalizeController {
 
     const doc = vscode.window.activeTextEditor.document;
 
-    if (doc.lineCount === 0 || !doc.getText().match(this._matcher)){
+    if (doc.lineCount === 0 || !(doc.getText().match(this._matcher) || this._trimSpace)){
       return;
     }
 
@@ -111,15 +113,32 @@ class NormalizeController {
           continue;
         }
 
-        if (line.text.match(this._matcher)){
+        let newLineText = line.text;
+        let replace = false;
+        
+        if (newLineText.match(this._matcher)){
+          newLineText = newLineText.replace(this._matcher, this._replacement);
+          replace = true;
+        }
+        
+        try {
+          if (this._trimSpace && newLineText.match(/\s$/))
+          {
+            newLineText = newLineText.trimRight();
+            replace = true;
+          } 
+        } catch (error) {
+          console.info(error);
+        }
+        
+        if (replace) {
           editBuilder.replace(
             new vscode.Range(
               new vscode.Position(line.lineNumber, 0),
               new vscode.Position(line.lineNumber, line.text.length)),
-            line.text.replace(this._matcher, this._replacement));
-        };
-      };
-
+            newLineText);
+        }
+      }
     }).then(() => doc.save());
   }
 }
