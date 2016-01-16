@@ -2,8 +2,8 @@
   "name": "whitespace",
   "displayName": "Whitespace",
   "description": "Normalizes whitespace in files",
-  "version": "0.0.3",
-  "icon": "icon.png",
+  "version": "0.0.4",
+  "icon": "whitespace.png",
   "publisher": "sandcastle",
   "engines": {
     "vscode": "^0.10.1"
