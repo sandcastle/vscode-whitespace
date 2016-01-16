@@ -19,10 +19,10 @@ at regular intervals.
 
 #### Keyboard Shortcut
 
-The extension can also be executed on demand 
+The extension can also be executed on demand
 
-- **Mac**: Shift + Command + Space
-- **Windows**: Shift + Control + Space
+- **Mac**: <kbd>Shift</kbd> + <kbd>Command</kbd> + <kbd>Space</kbd>
+- **Windows**: <kbd>Shift</kbd> + <kbd>Control</kbd> + <kbd>Space</kbd>
 
 
 ## Configuration
