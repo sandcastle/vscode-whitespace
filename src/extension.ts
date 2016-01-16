@@ -23,18 +23,18 @@ class NormalizeController {
 
     this._loadConfig();
 
-		let subscriptions: vscode.Disposable[] = [];
+    let subscriptions: vscode.Disposable[] = [];
 
-		vscode.workspace.onDidSaveTextDocument(this._onDocumentSaved, this, subscriptions);
-		vscode.workspace.onDidChangeConfiguration(this._onConfigChanged, this, subscriptions);
+    vscode.workspace.onDidSaveTextDocument(this._onDocumentSaved, this, subscriptions);
+    vscode.workspace.onDidChangeConfiguration(this._onConfigChanged, this, subscriptions);
 
     let disposable = vscode.commands.registerCommand('extension.whitespace', () => {
       this.normalize();
     });
     subscriptions.push(disposable);
 
-		this._disposable = vscode.Disposable.from(...subscriptions);
-	}
+    this._disposable = vscode.Disposable.from(...subscriptions);
+  }
 
   private _loadConfig(){
 
@@ -49,13 +49,13 @@ class NormalizeController {
     this._matcher = (indent_style === 'space') ? /\t/g : new RegExp(this._spaces, 'g');
   }
 
-	private _onDocumentSaved() {
-		this.normalize();
-	}
+  private _onDocumentSaved() {
+    this.normalize();
+  }
 
-	private _onConfigChanged() {
+  private _onConfigChanged() {
     this._loadConfig();
-	}
+  }
 
   // Taken from https://github.com/Microsoft/vscode-editorconfig/blob/master/src/editorConfigMain.ts#L159-L183
   private _toEditorConfig(configuredInsertSpaces:boolean|string, configuredTabSize:number|string) {
@@ -85,9 +85,9 @@ class NormalizeController {
     };
   }
 
-	dispose() {
-		this._disposable.dispose();
-	}
+  dispose() {
+    this._disposable.dispose();
+  }
 
   normalize(){
 
