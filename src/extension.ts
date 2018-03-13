@@ -103,22 +103,11 @@ class NormalizeController {
 
     vscode.window.activeTextEditor.edit(editBuilder => {
 
-      let line : vscode.TextLine;
-      for(var i = 0; i < doc.lineCount; i++){
-
-        line = doc.lineAt(i);
-        if (line.text.length === 0){
-          continue;
-        }
-
-        if (line.text.match(this._matcher)){
-          editBuilder.replace(
-            new vscode.Range(
-              new vscode.Position(line.lineNumber, 0),
-              new vscode.Position(line.lineNumber, line.text.length)),
-            line.text.replace(this._matcher, this._replacement));
-        };
-      };
+      editBuilder.replace(
+        new vscode.Range(
+          new vscode.Position(0, 0),
+          new vscode.Position(doc.lineCount - 1, doc.lineAt(doc.lineCount - 1).text.length)),
+        doc.getText().replace(this._matcher, this._replacement));
 
     }).then(() => doc.save());
   }
