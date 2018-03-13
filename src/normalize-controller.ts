@@ -77,11 +77,7 @@ export default class NormalizeController {
     this._disposable.dispose();
   }
 
-  normalize(){
-
-    if (!vscode.window.activeTextEditor) {
-      return;
-    }
+  normalize() {
 
     const editor = vscode.window.activeTextEditor;
     const doc = editor && editor.document;
