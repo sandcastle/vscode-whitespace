@@ -2,7 +2,7 @@
   "name": "whitespace",
   "displayName": "Whitespace",
   "description": "Normalizes whitespace in files",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "icon": "whitespace.png",
   "publisher": "sandcastle",
   "engines": {
