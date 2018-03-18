@@ -8,10 +8,7 @@
   "engines": {
     "vscode": "^0.10.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sandcastle/vscode-whitespace"
-  },
+  "repository": "https://github.com/sandcastle/vscode-whitespace",
   "keywords": [
     "text",
     "whitespace",
@@ -29,18 +26,22 @@
   "activationEvents": [
     "*"
   ],
-  "main": "./out/src/extension",
+  "main": "./src/extension",
   "contributes": {
-    "commands": [{
-      "command": "extension.whitespace",
-      "title": "Normalize Whitespace"
-    }],
-    "keybindings": [{
-      "command": "extension.whitespace",
-      "key": "shift+alt+space",
-      "mac": "shift+cmd+space",
-      "when": "editorTextFocus"
-    }]
+    "commands": [
+      {
+        "command": "extension.whitespace",
+        "title": "Normalize Whitespace"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.whitespace",
+        "key": "shift+alt+space",
+        "mac": "shift+cmd+space",
+        "when": "editorTextFocus"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
@@ -49,5 +50,8 @@
   "devDependencies": {
     "typescript": "^1.6.2",
     "vscode": "0.10.x"
-  }
+  },
+  "author": "Glenn Morton <glenn@sandcastle.io>",
+  "license": "MIT",
+  "private": false
 }
